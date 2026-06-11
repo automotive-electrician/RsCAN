@@ -1,0 +1,15 @@
+pub const RPM: &str = "RPM";
+pub const CELSIUS: &str = "°C";
+pub const PERCENTAGE: &str = "%";
+pub const KILO_PASCAL: &str = "kPa";
+pub const KILOMETERS_PER_HOUR: &str = "km/h";
+pub const DEGREE: &str = "°";
+pub const GRAM_PER_SECOND: &str = "g/s";
+pub const VOLTAGE: &str = "V";
+pub const SECOND: &str = "s";
+pub const MILLI_AMPERE: &str = "mA";
+pub const LAMBDA: &str = "λ";
+pub const MINUTES: &str = "min";
+pub const PASCAL: &str = "Pa";
+pub const LITER_PER_HOUR: &str = "L/h";
+pub const NEWTON_METER: &str = "Nm";
