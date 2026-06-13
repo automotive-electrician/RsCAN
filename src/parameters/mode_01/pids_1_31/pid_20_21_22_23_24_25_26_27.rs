@@ -25,9 +25,10 @@ macro_rules! oxygen_sensors {
             fn pid(&self) -> u8 {
                 $pid
             }
+            #[inline(always)]
             fn parse(&self, data: &[u8]) -> Result<ParameterValue, ParseError> {
                 data_validation(data, 4, MODE_01, $pid)?;
-                Ok(ParameterValue::U16(u16::from_be_bytes([data[2], data[3]])))
+                Ok(ParameterValue::TupleU8(data[2], data[3]))
             }
         }
     };

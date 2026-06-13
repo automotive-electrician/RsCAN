@@ -19,8 +19,8 @@ impl Parameter for MonitorStatusSinceDTCsCleared {
     }
     fn parse(&self, data: &[u8]) -> Result<ParameterValue, ParseError> {
         data_validation(data, 6, MODE_01, MONITOR_STATUS_SINCE_DTC_CLEARED)?;
-        Ok(ParameterValue::U32(u32::from_be_bytes([
+        Ok(ParameterValue::FourBytes(
             data[2], data[3], data[4], data[5],
-        ])))
+        ))
     }
 }

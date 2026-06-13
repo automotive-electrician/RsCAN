@@ -24,8 +24,9 @@ macro_rules! mode_01_supported_pids {
             }
             fn parse(&self, data: &[u8]) -> Result<ParameterValue, ParseError> {
                 data_validation(data, 6, MODE_01, $pid_const)?;
-                let m01spids: u32 = u32::from_be_bytes([data[2], data[3], data[4], data[5]]);
-                Ok(ParameterValue::U32(m01spids))
+                Ok(ParameterValue::U32(u32::from_be_bytes([
+                    data[2], data[3], data[4], data[5],
+                ])))
             }
         }
     };
