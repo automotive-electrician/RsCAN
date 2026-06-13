@@ -1,6 +1,10 @@
 // PIDs Supported (01-20) -> 0x00 -> Bitcode
+pub const MIN_0X00: u32 = 0x00;
+pub const MAX_0X00: u32 = 0xFFFFFFFF;
 
 // Monitor Status Since DTCs Cleared -> 0x01 -> 4Byte
+pub const MIN_0X01: u32 = 0x00;
+pub const MAX_0X01: u32 = 0xFFFFFFFF;
 
 // Freeze DTC -> 0x02
 

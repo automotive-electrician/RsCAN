@@ -22,17 +22,10 @@ macro_rules! mode_01_supported_pids {
             fn pid(&self) -> u8 {
                 $pid_const
             }
-            fn label(&self) -> &'static str {
-                ""
-            }
-            fn unit(&self) -> &'static str {
-                ""
-            }
             fn parse(&self, data: &[u8]) -> Result<ParameterValue, ParseError> {
                 data_validation(data, 6, MODE_01, $pid_const)?;
-                Ok(ParameterValue::Bitmap32(u32::from_be_bytes([
-                    data[2], data[3], data[4], data[5],
-                ])))
+                let m01spids: u32 = u32::from_be_bytes([data[2], data[3], data[4], data[5]]);
+                Ok(ParameterValue::U32(m01spids))
             }
         }
     };
