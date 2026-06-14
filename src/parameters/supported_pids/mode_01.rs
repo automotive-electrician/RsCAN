@@ -13,17 +13,17 @@ use crate::{
 };
 
 macro_rules! mode_01_supported_pids {
-    ($name:ident, $pid_const:expr) => {
+    ($name:ident, $pid:expr) => {
         pub struct $name;
         impl Parameter for $name {
             fn mode(&self) -> u8 {
                 MODE_01
             }
             fn pid(&self) -> u8 {
-                $pid_const
+                $pid
             }
             fn parse(&self, data: &[u8]) -> Result<ParameterValue, ParseError> {
-                data_validation(data, 6, MODE_01, $pid_const)?;
+                data_validation(data, 6, MODE_01, $pid)?;
                 Ok(ParameterValue::U32(u32::from_be_bytes([
                     data[2], data[3], data[4], data[5],
                 ])))
